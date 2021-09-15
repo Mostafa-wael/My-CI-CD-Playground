@@ -9,6 +9,25 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id "com.palantir.docker" version "0.22.1"
+    id "com.palantir.docker-run" version "0.22.1"
+}
+
+
+
+// docker {
+//     //  name "${project.name}:${project.version}"
+//     name "${project.group}/${jar.baseName}"
+//     tags "latest"
+//     files jar.archivePath
+//     dockerfile file('Dockerfile')
+//     buildArgs(['JAR_FILE': "${jar.archiveName}"])
+// }
+
+dockerRun {
+    name "${project.name}"
+    image "${project.name}:${project.version}"
+    clean true
 }
 
 repositories {
@@ -22,6 +41,7 @@ dependencies {
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:30.1.1-jre'
+
 }
 
 application {
