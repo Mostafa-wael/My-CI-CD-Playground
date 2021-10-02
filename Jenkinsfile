@@ -13,6 +13,7 @@ pipeline {
                    gv = load "script.groovy" 
                 }
                 withGradle {
+                    sh "chmod 777 gradlew"
                     sh "./gradlew -v"
                 }
             }
