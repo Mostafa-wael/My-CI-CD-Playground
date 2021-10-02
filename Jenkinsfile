@@ -12,6 +12,9 @@ pipeline {
                 script {
                    gv = load "script.groovy" 
                 }
+                withGradle {
+                    sh "./gradlew -v"
+                }
             }
         }
         stage("build") {
