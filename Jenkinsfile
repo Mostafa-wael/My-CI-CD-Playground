@@ -23,6 +23,9 @@ pipeline {
                 script {
                     gv.buildApp()
                 }
+                withGradle {
+                    sh "./gradlew build"
+                }
             }
         }
         stage("test") {
