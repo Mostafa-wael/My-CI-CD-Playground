@@ -12,3 +12,4 @@ ENTRYPOINT ["gradle"]
 # the default command that will be passed to the docker run in case you did not pass a task
 CMD ["build"]
 
+
