@@ -6,6 +6,23 @@ pipeline {
         choice(name: 'VERSION', choices: ['ADT1', 'ADT2', 'ADT3'], description: '')
         booleanParam(name: 'executeTests', defaultValue: true, description: '')
     }
+    publishChecks(name: 'MyCheck', conclusion: 'Success', Summary:'It works fine!')
+    node
+    {
+        stage ('Checkout')
+        {
+            checkout scm
+        }
+        stage ('Build')
+        {
+            publishChecks(name: 'Stage Reporter', status: 'in_progress', Summary:'Building...')
+        }
+        stage ('Checkout')
+        {
+            publishChecks(name: 'Stage Reporter', status: 'in_progress', Summary:'Deploying...')
+        }
+    }
+    
     stages {
         stage("init") {
             steps {
