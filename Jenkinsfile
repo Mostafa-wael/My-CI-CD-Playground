@@ -1,5 +1,5 @@
 
-publishChecks(name: 'MyCheck', conclusion: 'Success', Summary:'It works fine!')
+publishChecks conclusion: 'NONE', name: 'testPlugin', summary: 'testPlugin', title: 'testPlugin'
 
  node
     {
